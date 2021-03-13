@@ -1,0 +1,420 @@
+﻿
+#stylePageName {
+    font-family: monospace;
+}
+
+
+.note-editor {
+    margin: 20px;
+}
+
+.note-editable {
+    background: white;
+    display: block;
+    margin: 25px auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    width: 595px;  /*595*/
+    height: 821px;
+}
+
+.b {
+    border: 1px Solid #fc8888 !important;
+    background-color: #eaeaea;
+}
+
+[title~=secili] {
+    /* border: 1px Solid #fc8888 !important;*/
+    background-color: #eaeaea;
+}
+
+input {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 11px;
+}
+
+label {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.form-control-sm {
+    height: 26px;
+    /*padding: .25rem .5rem;*/
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+.bg-select {
+    background-color: gray;
+}
+
+/* :root {
+    --font-size: 20px
+}*/
+
+.test {
+    font-size: var(--font-size)
+}
+
+.hero {
+    background: var(--primary-bg-color);
+    color: var(--primary-color);
+}
+
+/** {
+    box-sizing: border-box
+}*/
+
+
+/* Style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 15%;
+    /* height: 300px; */
+    left: 0px;
+}
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 16px 15px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: #ccc;
+            border-left: 5px solid #17c69e;
+        }
+
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border-right: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    width: 85%;
+    border-left: none;
+    height: 100%;
+}
+
+:root {
+    --primary-bg-color: #400080;
+    --primary-color: #ffffff;
+}
+
+
+.hero {
+    background: var(--primary-bg-color);
+    color: var(--primary-color);
+    transition: all .16s ease-in-out;
+}
+
+.sizeUnit {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    padding-top: 3px;
+    display: inline-block;
+}
+
+.selectUnit {
+    background-color: #aaaaaa;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    padding-top: 3px;
+    display: inline-block;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #17C69E;
+    border-radius: 15px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #17C69E;
+    }
+
+.note-handle {
+    position: relative;
+}
+
+.note-editable {
+    z-index: 10;
+    position: relative;
+}
+
+.note-codable {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 100;
+}
+
+
+/*.table {
+    width: unset !important;
+    max-width: unset !important;
+}*/
+
+
+body {
+    /*overflow: hidden;*/
+    background-color: #EFEFEF;
+}
+
+#editor {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 320px;
+    left: 0;
+    border-right: 1px solid black;
+}
+
+/*#info {
+    position: absolute;
+    top: 30px;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    font-size: 12px;
+}*/
+
+.hotkeys td {
+    vertical-align: top;
+}
+
+.hotkeys tr td:nth-child(2) {
+    padding-left: 7px;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 3px
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+.example input[type=text] {
+    float: left;
+    width: 85%;
+}
+
+.example button {
+    float: left;
+    width: 15%;
+    padding: 10px;
+    background: gray;
+    color: white;
+    border-left: none;
+    cursor: pointer;
+    border: 1px solid gray;
+    border: 0px;
+}
+
+    .example button:hover {
+        background: gray;
+    }
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.anaMenu {
+    width: 75%;
+}
+
+.yanMenu {
+    /*width:25%;*/
+    background-color: #eaeaea;
+    font-size: 13px;
+    padding: 0px;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    right: 0px;
+    overflow-x: scroll;
+}
+
+
+@media (min-width: 768px){
+.navbar {
+     border-radius:0px !important;
+     }
+}
+.navbar {
+position: relative; 
+min-height: 64px  !important; 
+margin-bottom: 20px; 
+border: 1px solid transparent; 
+}
+.btn-link {
+font-weight: 400 !important;
+color: #fafafa !important;
+text-decoration: none !important;
+}
+.btn {
+display: inline-block !important;
+font-weight: 400 !important;
+color: #757575 !important;
+text-align: center !important;
+vertical-align: middle !important;
+-webkit-user-select: none !important;
+-moz-user-select: none !important;
+-ms-user-select: none !important;
+user-select: none !important;
+background-color: transparent !important;
+border: 1px solid transparent !important;
+padding: .375rem .75rem !important;
+font-size: 1rem !important;
+line-height: 1.5 !important;
+border-radius: .35rem !important;
+-webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+.sidebar .nav-item .nav-link {
+display: block;
+width: 100%;
+text-align: left;
+padding: 1rem;
+width: 100% !important;
+}
+.sidebar {
+min-height: 100vh;
+width: 346px !important; /*23rem!important;*/
+background-color: #fff!important;
+-webkit-box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+z-index: 0;
+}
+.sidebar .sidebar-brand {
+height: 6.375rem !important;
+text-decoration: none;
+font-size: 2rem !important;
+font-weight: 800;
+padding: 1.5rem 1rem;
+text-align: center;
+letter-spacing: .05rem;
+z-index: 1;
+}
+.sidebar .nav-item .nav-link i {
+font-size: 1.25rem !important;
+margin-right: 1.25rem !important;
+margin-left: 0.5rem !important;
+}
+.sidebar .sidebar-heading {
+text-align: left;
+padding: 0 1rem;
+font-weight: 800;
+font-size: 0.85rem !important;
+letter-spacing: .13rem;
+}
+.sidebar .nav-item .nav-link span {
+font-size: 1.25rem !important;
+display: inline;
+}
+.sidebar .nav-item {
+position: relative;
+margin-bottom: 0px;
+}
+.sidebar .nav-item .collapse .collapse-inner, .sidebar .nav-item .collapsing .collapse-inner {
+padding: .5rem 0;
+min-width: 10rem;
+font-size: 1.25rem;
+margin: 0 0 1rem 0;
+}
+.sidebar.toggled .nav-item .nav-link[data-toggle=collapse]::after {
+width: 0rem !important;
+text-align: center;
+float: right;
+vertical-align: 0;
+border: 0;
+font-weight: 900;
+content: '\f107';
+font-family: 'Font Awesome 5 Free';
+}
+
+.sidebar .nav-item .collapse .collapse-inner, .sidebar .nav-item .collapsing .collapse-inner {
+padding: .5rem 8px !important;
+min-width: 10rem;
+font-size: 1.25rem;
+margin: 0 0 1rem 0;
+}
+    .note-editor.note-frame .note-editing-area .note-editable {
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        overflow: auto;
+        color: #000;
+        word-wrap: break-word;
+        background-color: #fff;
+    }
+
+    body {
+        font-family: Arial;
+        font-size: 11px;
+        color: #333;
+        background-color: #fff;
+    }
+
+    .table > thead > tr > th {
+        padding: 2px;
+    }
+
+    .table > thead > tr > td {
+        padding: 2px;
+    }
+
+    .table {
+        /*/*/ *margin-bottom: 0px;
+        border-collapse: collapse;
+    }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            padding: 2px;
+        }
