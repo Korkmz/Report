@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!--<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>-->
-    <!--<script type="text/javascript" language="javascript" src="C:\Users\GETASİS\Desktop\raporPage\sonuc.json"></script>-->
+
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
     <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -26,17 +24,48 @@
 
 <body id="page-top">
   <div id="wrapper">
+  <script>
+          function openCity(evt, cityName) {
+
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent1");
+              for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+
+
+              evt.currentTarget.className += " active";
+          }
+
+          // Get the element with id="defaultOpen" and click on it
+          document.getElementById("defaultOpen").click();
+  </script>
+
     <!-- Sidebar -->
-    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar" style="display: inline-block;">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
           <i class="fa fa-file"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Report Tool</div>
-      </a>
-      <hr class="sidebar-divider my-0">
+    </a>
+      
+    <div class="tab" style="display: inline-block;">
+      <button class="tablinks" onclick="openCity(event, 'Local')" id="defaultOpen"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
+      <button class="tablinks" onclick="openCity(event, 'Global')"><i class="fa fa-cog" aria-hidden="true"></i></button>
+      <button class="tablinks" onclick="openCity(event, 'Events')"><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+    </div>
+    <div style="display: inline-block;width: 85%;">
+    
+    <div id="Local" class="tabcontent1" style="display: block;">
+    <hr class="sidebar-divider my-0">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>REPORT DETAİL</span></a>
       </li>
@@ -81,7 +110,7 @@
           <div class="">
             <div class="example" style="margin:auto;">
 
-              <input id="expression-ınput" class="form-control form-control-sm rounded-left" type="text" readonly style="background-color:white;font-size:12px">
+              <input id="expression-ınput" class="form-control form-control-sm rounded-right" type="text" readonly style="background-color:white;font-size:12px">
               <button data-toggle="modal" data-target="#exampleModal"><i class="fa fa-ellipsis-h"></i></button>
 
           </div>
@@ -183,7 +212,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePadding" aria-expanded="true" aria-controls="collapseForm">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePadding" aria-expanded="false" aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Padding</span>
         </a>
@@ -230,10 +259,11 @@
        
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseSize" aria-expanded="true" aria-controls="collapseForm">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSize" aria-expanded="false" aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Size</span>
         </a>
+        
         <div id="collapseSize" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
             <div class="form-group row" style="margin-bottom:7px;margin-right: -7px; margin-left: -7px;">
@@ -261,7 +291,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePosition" aria-expanded="true" aria-controls="collapseForm">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition" aria-expanded="true" aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Position</span>
         </a>
@@ -312,11 +342,11 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseSytle" aria-expanded="true" aria-controls="collapseForm">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSytle" aria-expanded="true" aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Sytle</span>
         </a>
-        <div id="collapseSytle" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="">
+        <div id="collapseSytle" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="height: 0px;" aria-expanded="false">
           <div class="bg-white py-2 collapse-inner rounded">
             <textarea class="form-control form-control-sm" id="styleName" rows="6" onchange="changeAttr('style','styleName')"></textarea>
 
@@ -324,7 +354,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseSytle2" aria-expanded="true" aria-controls="collapseForm">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSytle2" aria-expanded="true" aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Page External Style Sheet</span>
         </a>
@@ -337,6 +367,39 @@
       </li>
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
+    </div>
+    
+    <div id="Global" class="tabcontent1" style="display: none;">
+      
+      <li class="nav-item active">
+        <a class="nav-link">
+          <span>PAGE DETAİL</span></a>
+      </li>
+      <li class="form-group p-3">
+          <span class="lbl">Page External Style Sheet </span>
+          <textarea class="form-control form-control-sm" id="stylePageName" rows="25"></textarea>
+      </li>
+  </div>
+  <div id="Events" class="tabcontent1" style="display: none;">
+           
+      <li class="nav-item active">
+        <a class="nav-link">
+          <span>EXPRESSIONS</span></a>
+      </li>
+      <hr />
+
+      <li class="form-group p-3">
+        
+          <span class="lbl">Expression </span>
+          <div class="example" style="margin:auto;">
+              <input id="expression-ınput2" class="form-control form-control-sm rounded-right" type="text" readonly style="background-color:white;font-size:12px">
+              <button data-toggle="modal" data-target="#exampleModal2"><i class="fa fa-ellipsis-h"></i></button>
+          </div>
+
+      </li>
+
+  </div>
+    </div>
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -347,182 +410,33 @@
             <i class="fa fa-bars"></i>
           </button>
           <ul class="navbar-nav ml-auto" style="font-size: 18px;">
+          
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
+               
+                <span class="ml-2 d-none d-lg-inline text-white small">MAİL SEND</span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-                <form class="navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="What do you want to look for?"
-                      aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+          
             </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+           
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <span class="badge badge-danger badge-counter">3+</span>
+               
+                <span class="ml-2 d-none d-lg-inline text-white small">PRİNT</span>
               </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <span class="badge badge-warning badge-counter">2</span>
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/man.png" style="max-width: 60px" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been
-                      having.</div>
-                    <div class="small text-gray-500">Udin Cilok · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/girl.png" style="max-width: 60px" alt="">
-                    <div class="status-indicator bg-default"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people
-                      say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Jaenab · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-tasks fa-fw"></i>
-                <span class="badge badge-success badge-counter">3</span>
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Task
-                </h6>
-                <a class="dropdown-item align-items-center" href="#">
-                  <div class="mb-3">
-                    <div class="small text-gray-500">Design Button
-                      <div class="small float-right"><b>50%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item align-items-center" href="#">
-                  <div class="mb-3">
-                    <div class="small text-gray-500">Make Beautiful Transitions
-                      <div class="small float-right"><b>30%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item align-items-center" href="#">
-                  <div class="mb-3">
-                    <div class="small text-gray-500">Create Pie Chart
-                      <div class="small float-right"><b>75%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
-              </div>
+          
             </li>
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+               
+                <span class="ml-2 d-none d-lg-inline text-white small">PDF</span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
+          
             </li>
           </ul>
         </nav>
@@ -530,23 +444,14 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-          <div id="summernote"></div>
-  <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-  </script>
+                  <div id="summernote"></div> 
         </div>
         <!---Container Fluid-->
       </div>
+
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
-              <b><a href="https://indrijunanda.gitlab.io/" target="_blank">indrijunanda</a></b>
-            </span>
-          </div>
+        <div class="container my-auto">          
         </div>
       </footer>
       <!-- Footer -->
@@ -555,6 +460,11 @@
   
   
   </div>
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+  </script>
 <script>
        var JsonData = "";
         var jd;
@@ -848,6 +758,7 @@
     </div>
 </div>
 
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
@@ -856,5 +767,10 @@
 
     <script src="ace-builds/src-noconflict/ace.js"></script>
     <script src="summernote-markdown-master/dist/bundle.js"></script>
+
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/ruang-admin.min.js"></script>
+<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="js/demo/chart-area-demo.js"></script>  
 </body>
 </html>

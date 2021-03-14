@@ -70,10 +70,10 @@ label {
 /* Style the tab */
 .tab {
     float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    border: 1px solid #eae9e9;
+    background-color: #ffffff;
     width: 15%;
-    /* height: 300px; */
+     height: 100% !important; 
     left: 0px;
 }
 
@@ -82,7 +82,7 @@ label {
         display: block;
         background-color: inherit;
         color: black;
-        padding: 16px 15px;
+        padding: 16px 11px;
         width: 100%;
         border: none;
         outline: none;
@@ -102,7 +102,9 @@ label {
             background-color: #ccc;
             border-left: 5px solid #17c69e;
         }
-
+.tablinks >i {
+    color: dimgrey;
+}
 
 /* Style the tab content */
 .tabcontent {
@@ -418,3 +420,8 @@ margin: 0 0 1rem 0;
         .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
             padding: 2px;
         }
+
+.lbl{
+    font-size: 13px;
+    color: #9496a3;
+}
