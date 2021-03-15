@@ -1,0 +1,762 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
+    <link href="css/ruang-admin.min.css" rel="stylesheet">
+
+    <link href="styleCss.css" rel="stylesheet">
+    <script src="raporTasarimJs.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Report Tool</title>
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+  <script>
+          function openCity(evt, cityName) {
+
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent1");
+              for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+
+
+              evt.currentTarget.className += " active";
+          }
+
+          // Get the element with id="defaultOpen" and click on it
+          document.getElementById("defaultOpen").click();
+  </script>
+
+    <!-- Sidebar -->
+   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar" style="display: inline-block;">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon">
+          <i class="fa fa-file"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Report Tool</div>
+    </a>
+      
+    <div class="tab" style="display: inline-block;">
+      <button class="tablinks" onclick="openCity(event, 'Local')" id="defaultOpen"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
+      <button class="tablinks" onclick="openCity(event, 'Global')"><i class="fa fa-cog" aria-hidden="true"></i></button>
+      <button class="tablinks" onclick="openCity(event, 'Events')"><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+    </div>
+    <div style="display: inline-block;width: 85%;">
+    
+    <div id="Local" class="tabcontent1" style="display: block;">
+    <hr class="sidebar-divider my-0">
+      <li class="nav-item active">
+        <a class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>REPORT DETAİL</span></a>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Features
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Properties</span>
+        </a>
+        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="">
+           
+            <div id="secili" style="font-weight: 700; color: #ff4d4d"></div>
+            <select class="form-control form-control-sm frm-basic mt-2" id="seciliNesne"></select>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+          aria-controls="collapseForm">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>Class Name</span>
+        </a>
+        <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+          <div class="">
+           
+            <input class="form-control form-control-sm frm-basic mt-2" id="className" onchange="changeAttr('class','className')" />
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Expression</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="">
+            <div class="example" style="margin:auto;">
+
+              <input id="expression-ınput" class="form-control form-control-sm frm-basic rounded-right" type="text" readonly style="background-color:white;font-size:12px">
+              <button data-toggle="modal" data-target="#exampleModal"><i class="fa fa-ellipsis-h"></i></button>
+
+          </div>
+          </div>
+        </div>
+      </li>
+     
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Examples
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
+          aria-controls="collapsePage">
+          <i class="fas fa-fw fa-columns"></i>
+          <span>Apprearence</span>
+        </a>
+        <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Background-color </label>
+              <div class="col-sm-6">
+                  <input id="bgColor" class="form-control form-control-sm frm-basic basic input-color-picker" type="color" data-id="background" name="Background" />
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Border-color </label>
+              <div class="col-sm-6">
+                  <input id="borderColor" class="form-control form-control-sm frm-basic basic input-color-picker kenarStatus" type="color" data-id="border" name="border" />
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Border Style </label>
+              <div class="col-sm-6">
+                  <select id="kenar" class="form-control form-control-sm frm-basic kenarStatus">
+                      <option value="solid">Solid</option>
+                      <option value="dotted">Dotted</option>
+                      <option value="dashed">Dashed</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Border width </label>
+              <div class="col-sm-6">
+                  <input id="borderWdth" class="form-control form-control-sm frm-basic kenarStatus" type='number' />
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Borders</label>
+              <div class="col-sm-6">
+                  <div id="kenarsız" class="border-status kenarInput" style="width:15px;height:15px;background-color:white;border:1px dotted gray;display:inline-block;padding:6px"></div>
+                  <div id="border" class="border-status bg-secondary kenarInput" style="width:15px;height:15px;background-color:white;border:1px solid gray;display:inline-block;padding:6px;margin-right:15px"></div>
+
+                  <div id="border-left" class="border-status kenarInput" style="width:15px;height:15px;background-color:white;border:1px dotted gray;border-left:1px solid gray;display:inline-block;padding:6px"></div>
+                  <div id="border-right" class="border-status kenarInput" style="width:15px;height:15px;background-color:white;border:1px dotted gray;border-right:1px solid gray;display:inline-block;padding:6px"></div>
+                  <div id="border-top" class="border-status kenarInput" style="width:15px;height:15px;background-color:white;border:1px dotted gray;border-top:1px solid gray;display:inline-block;padding:6px"></div>
+                  <div id="border-bottom" class="border-status kenarInput" style="width:15px;height:15px;background-color:white;border:1px dotted gray;border-bottom:1px solid gray;display:inline-block;padding:6px"></div>
+              </div>
+          </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFont" aria-expanded="true" aria-controls="collapseForm">
+          <i class="fas fa-font"></i>
+          <span>Font</span>
+        </a>
+        <div id="collapseFont" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Color </label>
+              <div class="col-sm-6">
+
+                  <input id="textColor" class="form-control form-control-sm frm-basic basic input-color-picker" type="color" data-id="color" name="Background" />
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Font Size</label>
+              <div class="col-sm-6">
+                  <input id="textFontSize" class="form-control form-control-sm frm-basic ChangeEvents" type='number' events='font-size' />
+
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Font Family</label>
+              <div class="col-sm-6">
+                  <select id="textFontFamily" class="form-control form-control-sm frm-basic ChangeEvents" events="font-family">
+                      <option value="Times New Roman">Times New Roman</option>
+                      <option value="Arial">Arial</option>
+                      <option value="Comic Sans MS">Comic Sans MS</option>
+                      <option value="Impact">Impact</option>
+                      <option value="Trebuchet MS">Trebuchet MS</option>
+                      <option></option>
+                  </select>
+              </div>
+          </div>
+  
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePadding" aria-expanded="false" aria-controls="collapseForm">
+          <i class="fa fa-align-justify"></i>
+          <span>Padding</span>
+        </a>
+        <div id="collapsePadding" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">All</label>
+              <div class="col-sm-6">
+                  <input id="padding" class="form-control form-control-sm frm-basic PaddingEvents" type='number' />
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Left</label>
+              <div class="col-sm-6">
+                  <input id="padding-left" class="form-control form-control-sm frm-basic PaddingEvents pLeftRight" type='number' />
+
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Right</label>
+              <div class="col-sm-6">
+                  <input id="padding-right" class="form-control form-control-sm frm-basic PaddingEvents pLeftRight" type='number' />
+
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Top</label>
+              <div class="col-sm-6">
+                  <input id="padding-top" class="form-control form-control-sm frm-basic PaddingEvents pTopBottom" type='number' />
+
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Bottom</label>
+              <div class="col-sm-6">
+                  <input id="padding-bottom" class="form-control form-control-sm frm-basic PaddingEvents pTopBottom" type='number' />
+
+              </div>
+          </div>   
+          
+          </div>
+  
+          </div>
+       
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSize" aria-expanded="false" aria-controls="collapseForm">
+          <i class="fas fa-layer-group"></i>
+          <span>Size</span>
+        </a>
+        
+        <div id="collapseSize" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <div class="form-group row" style="margin-bottom:7px;margin-right: -7px; margin-left: -7px;">
+              <div class="col-sm-6"></div>
+              <div class="col-sm-6">
+                  <div data-id="px" id="px" class="text-center sizeUnit">px</div>
+                  <div data-id="%" id="percent" class="text-center sizeUnit">%</div>
+
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Width</label>
+              <div class="col-sm-6">
+                  <input id="width" class="form-control form-control-sm frm-basic WidthHeightEvents" events="width" type='number' />
+              </div>
+          </div>
+          <div class="form-group row row-margin" >
+              <label class="col-sm-6 col-form-label">Height</label>
+              <div class="col-sm-6">
+                  <input id="height" class="form-control form-control-sm frm-basic WidthHeightEvents" events="height" type='number' />
+
+              </div>
+          </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition" aria-expanded="true" aria-controls="collapseForm">
+          <i class="fas fa-arrows-alt"></i>
+          <span>Position</span>
+        </a>
+        <div id="collapsePosition" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <div class="form-group row row-margin" >
+                            <label class="col-sm-6 col-form-label">Type</label>
+                            <div class="col-sm-6">
+                                <select id="position" class="form-control form-control-sm frm-basic ChangePosition" events="position">
+                                    <option value="nothing">nothing</option>
+                                    <option value="absolute">absolute</option>
+                                    <option value="relative">relative</option>
+                                    <!--<option value="fixed">fixed</option>-->
+    
+                                </select>
+                            </div>
+                        </div>
+    
+    
+                        <div class="form-group row row-margin" >
+                            <label class="col-sm-6 col-form-label">Top</label>
+                            <div class="col-sm-6">
+                                <input id="top" class="form-control form-control-sm frm-basic ChangePosition" events="top" type='number' />
+                            </div>
+                        </div>
+                        <div class="form-group row row-margin" >
+                            <label class="col-sm-6 col-form-label">Bottom</label>
+                            <div class="col-sm-6">
+                                <input id="bottom" class="form-control form-control-sm frm-basic ChangePosition" events="bottom" type='number' />
+                            </div>
+                        </div>
+                        <div class="form-group row row-margin" >
+                            <label class="col-sm-6 col-form-label">Left</label>
+                            <div class="col-sm-6">
+                                <input id="left" class="form-control form-control-sm frm-basic ChangePosition" events="left" type='number' />
+                            </div>
+                        </div>
+                        <div class="form-group row row-margin" >
+                            <label class="col-sm-6 col-form-label">Right</label>
+                            <div class="col-sm-6">
+                                <input id="right" class="form-control form-control-sm frm-basic ChangePosition" events="right" type='number' />
+                            </div>
+                        </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSytle" aria-expanded="true" aria-controls="collapseForm">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>Sytle</span>
+        </a>
+        <div id="collapseSytle" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar" style="height: 0px;" aria-expanded="false">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <textarea class="form-control form-control-sm" id="styleName" rows="6" onchange="changeAttr('style','styleName')"></textarea>
+
+          </div>
+        </div>
+      </li>
+     
+      <hr class="sidebar-divider">
+      <div class="version" id="version-ruangadmin"></div>
+    </div>
+    
+    <div id="Global" class="tabcontent1" style="display: none;">
+      
+      <li class="nav-item active">
+        <a class="nav-link">
+          <span>PAGE DETAİL</span></a>
+      </li>
+      <li class="form-group p-3">
+          <span class="lbl">Page External Style Sheet </span>
+          <textarea class="form-control form-control-sm " id="stylePageName" rows="25"></textarea>
+      </li>
+  </div>
+  <div id="Events" class="tabcontent1" style="display: none;">
+           
+      <li class="nav-item active">
+        <a class="nav-link">
+          <span>EXPRESSIONS</span></a>
+      </li>
+      <hr />
+
+      <li class="form-group p-3">
+        
+          <span class="lbl">Expression </span>
+          <div class="example" style="margin:auto;">
+              <input id="expression-ınput2" class="form-control form-control-sm frm-basic rounded-right" type="text" readonly style="background-color:white;font-size:12px">
+              <button data-toggle="modal" data-target="#exampleModal2"><i class="fa fa-ellipsis-h"></i></button>
+          </div>
+
+      </li>
+
+  </div>
+    </div>
+    </ul>
+    <!-- Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto" style="font-size: 18px;">
+          
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+               
+                <span class="ml-2 d-none d-lg-inline text-white small">MAİL SEND</span>
+              </a>
+          
+            </li>
+           
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+               
+                <span class="ml-2 d-none d-lg-inline text-white small">PRİNT</span>
+              </a>
+          
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+               
+                <span class="ml-2 d-none d-lg-inline text-white small">PDF</span>
+              </a>
+          
+            </li>
+          </ul>
+        </nav>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+                  <div id="summernote"></div> 
+        </div>
+        <!---Container Fluid-->
+      </div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">          
+        </div>
+      </footer>
+      <!-- Footer -->
+    </div>
+  
+  
+  
+  </div>
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+  </script>
+<script>
+       var JsonData = "";
+        var jd;
+
+    $(document).ready(function () {
+        $.ajax({                                        //Sayfa ilk açıldığında txt dosyasındaki rapor yükleniyor
+            type: "POST",
+            url: "/Home/DataGet",
+            success: function (data) {
+                if (data.Response == true) {
+                    var veri = data.DataList;
+                    $('.note-editable').html(veri);
+                    //     debugger;
+                    if (veri.indexOf("cssPage") == -1) $('.note-editable').append("<style id='cssPage'></style>");
+                    // $("#stylePageName").text(data.PageCss);
+                    $("#stylePageName").text(veri.substring((veri.indexOf("cssPage") + 9), (veri.indexOf("/style") - 1)));
+                }
+            }
+
+        });
+
+        $(".btn-Save").on("click", function (e) {       //Raporu txt dosyasına kayıt etmektedir.
+            data = $('.note-editable').html();
+            $.ajax({
+                type: 'POST',
+                url: "/Home/DataSave",
+                data: { veri: data },
+                dataType: "json",
+                success: function (result) {
+                    swal("Basarili Kayıt !");
+                },
+                error: function (result) {
+                    swal("basarisiz");
+                }
+            });
+            var htmls = $(".note-editable").html();
+        });
+     //   debugger;
+      //  Start();
+      //  Start2();
+    
+    $(".note-editing-area").attr("style","overflow-x:scroll;");
+      function  Start(){
+        editor = ace.edit("editor");
+        editor.setValue('');
+        editor.setTheme("ace/theme/chrome");
+        editor.session.setMode("ace/mode/javascript");
+        editor.getSession().setUseWrapMode(true);
+        editor.getSession().setWrapLimitRange(null, null);
+        editor.setShowPrintMargin(false);
+
+        ace.config.loadModule('ace/ext/language_tools', function () {
+            ace.config.loadModule('ace/ext/tern', function () {
+                editor.setOptions({
+                    enableTern: true,
+                    enableSnippets: false,
+                    enableBasicAutocompletion: true
+                });
+
+                //setup server options
+                server = editor.ternServer;
+                server.options.plugins = {
+                    requirejs: {
+                        "baseURL": "",
+                        "paths": {}
+                    },
+                    doc_comment: true
+                };
+                server.options.switchToDoc = function (name, start, end, doNotCloseTips) {
+                    selectDoc(docID(name), doNotCloseTips);
+                    if (start && end) {
+                        //(ghetto) - wait then jump to location once tab changed
+                        setTimeout(function () {
+                            editor.gotoLine(start.row, start.column || 0); //this will make sure that the line is expanded
+                            var sel = curDoc.doc.getSelection();
+                            sel.setSelectionRange({
+                                start: start,
+                                end: end
+                            });
+                        }, 200);
+                    }
+                };
+                server.restart(); //(needed to update options)
+
+
+
+            });
+        });
+        }
+
+      function  Start2(){
+        editor2 = ace.edit("editor2");
+        editor2.setValue('');
+        editor2.setTheme("ace/theme/chrome");
+        editor2.session.setMode("ace/mode/javascript");
+        editor2.getSession().setUseWrapMode(true);
+        editor2.getSession().setWrapLimitRange(null, null);
+        editor2.setShowPrintMargin(false);
+
+        ace.config.loadModule('ace/ext/language_tools', function () {
+            ace.config.loadModule('ace/ext/tern', function () {
+                editor2.setOptions({
+                    enableTern: true,
+                    enableSnippets: false,
+                    enableBasicAutocompletion: true
+                });
+
+                //setup server options
+                server = editor2.ternServer;
+                server.options.plugins = {
+                    requirejs: {
+                        "baseURL": "",
+                        "paths": {}
+                    },
+                    doc_comment: true
+                };
+                server.options.switchToDoc = function (name, start, end, doNotCloseTips) {
+                    selectDoc(docID(name), doNotCloseTips);
+                    if (start && end) {
+                        //(ghetto) - wait then jump to location once tab changed
+                        setTimeout(function () {
+                            editor2.gotoLine(start.row, start.column || 0); //this will make sure that the line is expanded
+                            var sel = curDoc.doc.getSelection();
+                            sel.setSelectionRange({
+                                start: start,
+                                end: end
+                            });
+                        }, 200);
+                    }
+                };
+                server.restart(); //(needed to update options)
+
+
+
+            });
+        });
+        }
+      $.ajax({
+            type: 'POST',
+            url: '/Home/GetJson',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (result) {
+                //alert(data);
+             var p = JSON.parse(result.DataJson);
+             jd = p;
+              Parcala(p, "");
+              Start();
+              Start2();
+            }
+        });
+      function Parcala(p, x) {
+            if (jQuery.isPlainObject(p)) {
+                for (var i = 0; i < Object.entries(p).length; i++) {
+                    console.log(x + Object.entries(p)[i][0]);
+                    JsonData += x + Object.entries(p)[i][0] + "|";
+                    Parcala(Object.entries(p)[i][1], x + Object.entries(p)[i][0] + ".");
+                }
+            }
+        }
+      function Uygula() {
+
+
+            $("[data-ex]").each(function (i) {
+                var ob = $("[data-ex]")[i];
+
+                var q = $(ob).attr("data-ex");
+
+                var sp = q.split(".");
+
+                var val = "";
+
+                if (sp.length == 1)
+                    val = jd[sp[0]];
+                if (sp.length == 2)
+                    val = jd[sp[0]][sp[1]];
+                if (sp.length == 3)
+                    val = jd[sp[0]][sp[1]][sp[2]];
+
+                $(ob).html(val);
+
+            });
+
+
+        }
+
+});
+</script>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel"><b>Expression Editor</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="info" style="position:absolute;top:10px;right:70px">
+                        <!--  <a href="https://github.com/sevin7676/Ace.Tern" target="_blank">https://github.com/sevin7676/Ace.Tern</a>-->
+                        <!--<br />
+                        <br />-->
+                        Mode: <select id="modeSelect" onchange="window.location.hash=this.value; setModeFromHash();">
+                            <option>javascript</option>
+                            <option>html</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="height:150px;margin-top:20px">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-10">
+                        <pre id="editor" style="width:100%;height:140px"></pre>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <div class="row">
+
+                </div>
+                <!--<div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" style="height:100px;background-color:white;border:1px solid #c6bcbc;margin-bottom:10px;padding:0px">
+                        <textarea id="expressionInput" rows="5" style="width:100%;height:100%;color:#0196bf"></textarea>
+                    </div>
+                </div>-->
+                <!--<div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3" style="background-color:white;border:1px solid #c6bcbc">
+                        <div class="border-0 tablinks1" onclick="open('Field')">Field</div>
+                        <div class="border-0 tablinks1"  onclick="open('Functions')">Functions</div>
+                    </div>
+                    <div class="col-md-7" style="background-color:white;border:1px solid #c6bcbc;margin-left:10px;padding:0px">
+                        <div id="Field" style="height:150px;">
+                            <div class="form-group">
+                                <select multiple class="form-control" id="expression" style="width:100%;height:100%">
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary okExpression" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel"><b>Expression Editor</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="info" style="position:absolute;top:10px;right:70px">
+                        <!--  <a href="https://github.com/sevin7676/Ace.Tern" target="_blank">https://github.com/sevin7676/Ace.Tern</a>-->
+                        <!--<br />
+                        <br />-->
+                        Mode: <select id="modeSelect" onchange="window.location.hash=this.value; setModeFromHash();">
+                            <option>javascript</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="height:150px;margin-top:20px">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-10">
+                        <pre id="editor2" style="width:100%;height:140px"></pre>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary okExpression2" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="ace-builds/src-noconflict/ace.js"></script>
+    <script src="summernote-markdown-master/dist/bundle.js"></script>
+
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/ruang-admin.min.js"></script>
+<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="js/demo/chart-area-demo.js"></script>  
+</body>
+</html>
